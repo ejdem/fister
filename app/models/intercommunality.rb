@@ -3,8 +3,8 @@ class Intercommunality < ApplicationRecord
   
   validates :name,  presence: true
   validates :form,  inclusion: { in: %w(ca cu cc met) }
-  validates :siren, presence: true, length: { is: 9 }
   validates_uniqueness_of :siren, case_sensitive: false
+  validates :siren, presence: true, length: { is: 9 }
   
   before_save :generate_slug
   
@@ -17,7 +17,7 @@ class Intercommunality < ApplicationRecord
   end
   
   def generate_slug
-    self[:slug] = name.parameterize.downcase.tr(' ','-') if self[:slug].nil?
+    self[:slug] = name.parameterize.downcase.tr(' ','-') if name && self[:slug].nil?
   end
   
   private
