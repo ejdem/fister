@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.2'
 gem 'sqlite3'
 gem 'puma', '~> 3.0'
+gem 'unicode_utils'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -19,5 +20,7 @@ group :development do
 end
 
 group :test do
+  gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'shoulda-matchers'
 end

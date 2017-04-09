@@ -135,6 +135,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unicode_utils (1.4.0)
     web-console (3.4.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -159,6 +160,7 @@ DEPENDENCIES
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   sqlite3
+  unicode_utils
   web-console (>= 3.3.0)
 
 BUNDLED WITH

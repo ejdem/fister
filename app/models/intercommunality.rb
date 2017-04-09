@@ -19,4 +19,14 @@ class Intercommunality < ApplicationRecord
   def generate_slug
     self[:slug] = name.parameterize.downcase.tr(' ','-') if self[:slug].nil?
   end
+  
+  private
+  
+  def self.name_like(word)
+    where(intercommunality_arel[:name].matches("%#{word}%"))
+  end
+  
+  def self.intercommunality_arel
+    self.arel_table
+  end
 end
