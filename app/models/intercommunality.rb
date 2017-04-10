@@ -15,9 +15,9 @@ class Intercommunality < ApplicationRecord
       end
     end
   end
-  
-  def generate_slug
-    self[:slug] = name.parameterize.downcase.tr(' ','-') if name && self[:slug].nil?
+
+  def population
+    communes.all.pluck(:population).map(&:to_i).sum(0)
   end
   
   private
@@ -28,5 +28,9 @@ class Intercommunality < ApplicationRecord
   
   def self.intercommunality_arel
     self.arel_table
+  end
+
+  def generate_slug
+    self[:slug] = name.parameterize.downcase.tr(' ','-') if name && self[:slug].nil?
   end
 end
